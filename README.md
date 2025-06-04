@@ -1,19 +1,20 @@
-# Cotton
+# Cotton 🌻 — T-shirt Shop MVP (Phoenix LiveView)
 
-To start your Phoenix server:
+Welcome to **Cotton 🌻**, a minimalist T-shirt shop built with [Phoenix LiveView](https://hexdocs.pm/phoenix_live_view). This MVP is designed to get us started with the basic e-commerce flow: browsing T-shirts, viewing details, and preparing for checkout.
 
-  * Run `mix setup` to install and setup dependencies
-  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+---
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+## ✅ MVP Goals
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+- [ ] Phoenix LiveView setup (schemas, directories, etc...)
+- [ ] Basic Seeding
+- [ ] T-shirt index page with all products  
+- [ ] T-shirt show page with product details  
+- [ ] LiveView navigation between index and show  
+- [ ] Shopping cart (basic stateful session storage)  
+- [ ] Add to cart functionality  
+- [ ] Responsiveness  
+- [ ] Admin UI (optional)  
+- [ ] Deploy to Fly.io or Render (maybe 🤷‍♂️)
 
-## Learn more
-
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
-# cotton
+---
