@@ -1,0 +1,46 @@
+<.header>
+  Listing Tshirts
+  <:actions>
+    <.link patch={~p"/tshirts/new"}>
+      <.button>New T shirt</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table
+  id="tshirts"
+  rows={@streams.tshirts}
+  row_click={fn {_id, t_shirt} -> JS.navigate(~p"/tshirts/#{t_shirt}") end}
+>
+  <:col :let={{_id, t_shirt}} label="Name">{t_shirt.name}</:col>
+  <:col :let={{_id, t_shirt}} label="Description">{t_shirt.description}</:col>
+  <:col :let={{_id, t_shirt}} label="Price">{t_shirt.price}</:col>
+  <:col :let={{_id, t_shirt}} label="Stock">{t_shirt.stock}</:col>
+  <:col :let={{_id, t_shirt}} label="Svg">{t_shirt.svg}</:col>
+  <:col :let={{_id, t_shirt}} label="Color">{t_shirt.color}</:col>
+  <:action :let={{_id, t_shirt}}>
+    <div class="sr-only">
+      <.link navigate={~p"/tshirts/#{t_shirt}"}>Show</.link>
+    </div>
+    <.link patch={~p"/tshirts/#{t_shirt}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={{id, t_shirt}}>
+    <.link
+      phx-click={JS.push("delete", value: %{id: t_shirt.id}) |> hide("##{id}")}
+      data-confirm="Are you sure?"
+    >
+      Delete
+    </.link>
+  </:action>
+</.table>
+
+<.modal :if={@live_action in [:new, :edit]} id="t_shirt-modal" show on_cancel={JS.patch(~p"/tshirts")}>
+  <.live_component
+    module={CottonWeb.TShirtLive.FormComponent}
+    id={@t_shirt.id || :new}
+    title={@page_title}
+    action={@live_action}
+    t_shirt={@t_shirt}
+    patch={~p"/tshirts"}
+  />
+</.modal>
